@@ -1,0 +1,9 @@
+deployment:
+  imageURL: 537124943253.dkr.ecr.us-east-1.amazonaws.com/expense/dev/frontend  #ADD AWS ECR IMAGE URI
+  imageVersion: IMAGE_VERSION   #dynamucally replace with SED editor
+  replicas: 2
+hpa:
+  cpuUtilization: 12  #usually > 75
+
+tgb:
+  arn: arn:aws:elasticloadbalancing:us-east-1:537124943253:targetgroup/expense-dev/43b0748d849d6154   #we already created TG, otherwise use can ALB Ingress Controller.
